@@ -29,4 +29,5 @@ The vast majority of objects are allocated in a pool dedicated to young objects 
 [//]: # (https://medium.com/@sinisalouc/variance-in-java-and-scala-63af925d21dc)
 [//]: # (http://www.cs.umd.edu/~pugh/java/memoryModel/DoubleCheckedLocking.html)
 [//]: # (https://www.infoq.com/articles/cap-twelve-years-later-how-the-rules-have-changed)
+[//]: # (https://en.wikipedia.org/wiki/Memory_hierarchy)
 
