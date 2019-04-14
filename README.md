@@ -4,6 +4,7 @@
   - [Java Virtual Machine Stacks](#java-virtual-machine-stacks)
   - [Heap](#heap)
   - [Generational Garbage Collection](#generational-garbage-collection)
+  - [Big O Notation](#big-o-notation)
   - [Bit manipulation](#bit-manipulation)
     - [Binary Numbers](#binary-numbers)
       - [Binary Numbers and Base-2](#binary-numbers-and-base-2)
@@ -12,6 +13,7 @@
     - [Bitwise OR](#bitwise-or)
     - [Bitwise XOR (exclusive OR)](#bitwise-xor-exclusive-or)
     - [Bitwise NOT](#bitwise-not)
+  - [Memory Hierarchy](#memory-hierarchy)
 
 ## Java Virtual Machine Stacks
 
@@ -32,6 +34,26 @@ While naive garbage collection examines every live object in the heap every time
 To optimize for this scenario, memory is managed in *generations* (memory pools holding objects of different ages). Garbage collection occurs in each generation when the generation fills up.
 
 The vast majority of objects are allocated in a pool dedicated to young objects (the *young generation*), and most objects die there. When the young generation fills up, it causes a *minor collection* in which only the young generation is collected; garbage in other generations isn't reclaimed. The costs of such collections are, to the first order, proportional to the number of live objects being collected; a young generation full of dead objects is collected very quickly. Typically, some fraction of the surviving objects from the young generation are moved to the *old generation* during each minor collection. Eventually, the old generation fills up and must be collected, resulting in a *major collection*, in which the entire heap is collected. Major collections usually last much longer than minor collections because a significantly larger number of objects are involved.
+
+## Big O Notation
+
+notation | name
+:---: | :---:
+O(1) | constant
+O(log n) | logarithmic
+O(n) | constant
+O(n log n) | linearithmic/loglinear
+O(n^2) | quadratic
+O(n^c) | polynomial
+O(c^n) | polynomial
+O(n!) | factorial
+
+- [Big-O Cheat Sheet](http://bigocheatsheet.com/)
+- [orders of common functions](https://en.wikipedia.org/wiki/Big_O_notation#Orders_of_common_functions)
+- [table of common time complexities](https://en.wikipedia.org/wiki/Time_complexity#Table_of_common_time_complexities)
+- [NP-completeness](https://en.wikipedia.org/wiki/NP-completeness)
+
+![](https://upload.wikimedia.org/wikipedia/commons/a/a0/P_np_np-complete_np-hard.svg)
 
 ## Bit manipulation
 
@@ -149,9 +171,12 @@ When performing ```NOT``` on an integer, each bit of the integer is inverted.
 // = 1010 (-6 in two's complement as interpreted by the compiler)
 ```
 
+## Memory Hierarchy
+
+![](https://upload.wikimedia.org/wikipedia/commons/0/0c/ComputerMemoryHierarchy.svg)
+
 [//]: # (TODO)
 [//]: # (https://medium.com/@sinisalouc/variance-in-java-and-scala-63af925d21dc)
 [//]: # (http://www.cs.umd.edu/~pugh/java/memoryModel/DoubleCheckedLocking.html)
 [//]: # (https://www.infoq.com/articles/cap-twelve-years-later-how-the-rules-have-changed)
-[//]: # (https://en.wikipedia.org/wiki/Memory_hierarchy)
 
