@@ -21,6 +21,7 @@
   - [Heap](#heap)
   - [Generational Garbage Collection](#generational-garbage-collection)
   - [Memory Hierarchy](#memory-hierarchy)
+  - [REST](#rest)
 
 ## Algorithmic Thinking
 
@@ -277,11 +278,32 @@ The vast majority of objects are allocated in a pool dedicated to young objects 
 
 ![](https://upload.wikimedia.org/wikipedia/commons/0/0c/ComputerMemoryHierarchy.svg)
 
+## REST
+
+A basic HTTP request consists of:
+
+- a verb (or method)
+- a resource (or endpoint)
+
+Each HTTP verb:
+
+- has a meaning
+- is idempotent or not: *a request method is considered "idempotent" if the intended effect on the server of multiple identical requests with that method is the same as the effect for a single such request* (see [RFC7231: Idempotent methods](https://tools.ietf.org/html/rfc7231#section-4.2.2)).
+- is safe or not: *request methods are considered "safe" if their defined semantics are essentially read-only* (see [RFC7231: Safe methods](https://tools.ietf.org/html/rfc7231#section-4.2.1)).
+- is cacheable or not
+
+verb | meaning | idempotent | safe | cacheable
+:---: | :---: | :---: | :---: | :---:
+GET | reads a resource | yes | yes | yes
+POST | creates a resource or triggers a data-handling process | no | no | only cacheable if response contains explicit freshness information
+PUT | fully updates (replaces) an existing resource or creates a resource | yes | no | no
+PATCH | partially updates a resource | no | no | only cacheable if response contains explicit freshness information
+DELETE | deletes a resource | yes | no | no
+
 [//]: # (TODO)
 [//]: # (https://medium.com/@sinisalouc/variance-in-java-and-scala-63af925d21dc)
 [//]: # (http://www.cs.umd.edu/~pugh/java/memoryModel/DoubleCheckedLocking.html)
 [//]: # (https://www.infoq.com/articles/cap-twelve-years-later-how-the-rules-have-changed)
-[//]: # (https://github.com/donnemartin/system-design-primer#representational-state-transfer-rest)
 [//]: # (https://github.com/donnemartin/system-design-primer#remote-procedure-call-rpc)
 [//]: # (http://static.googleusercontent.com/media/research.google.com/zh-CN/us/archive/mapreduce-osdi04.pdf)
 [//]: # (https://github.com/donnemartin/system-design-primer#consistency-patterns)
