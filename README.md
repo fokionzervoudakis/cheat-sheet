@@ -16,6 +16,7 @@
       - [Left Shifts](#left-shifts)
       - [Logical Right Shifts](#logical-right-shifts)
       - [Arithmetic Right Shifts](#arithmetic-right-shifts)
+  - [Java Primitive Data Types](#java-primitive-data-types)
   - [Java Virtual Machine Stacks](#java-virtual-machine-stacks)
   - [Heap](#heap)
   - [Generational Garbage Collection](#generational-garbage-collection)
@@ -238,6 +239,19 @@ If a number is encoded using [two's complement](#negative-numbers-and-twos-compl
 // at bit level:
 // 1111 >>> 1 = 0111
 ```
+
+## Java Primitive Data Types
+
+category | type | size | range
+:---: | :---: | :---: | :---:
+integral | byte | 8-bit | -128 to 127
+integral | short | 16-bit | -32768 to 32767
+integral | int | 32-bit | -2147483648 to 2147483647
+integral | long | 64-bit | -9223372036854775808 to 9223372036854775807
+integral | char | 16-bit | ```'\u0000'``` to ```'\uffff'```
+floating-point | float | 32-bit | 32-bit IEEE 754 floating-point numbers
+floating-point | double | 64-bit | 64-bit IEEE 754 floating-point numbers
+other | boolean | N/A  | ```true``` and ```false```
 
 ## Java Virtual Machine Stacks
 
