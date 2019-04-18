@@ -17,6 +17,11 @@
       - [Logical Right Shifts](#logical-right-shifts)
       - [Arithmetic Right Shifts](#arithmetic-right-shifts)
   - [Java Primitive Data Types](#java-primitive-data-types)
+  - [Java Collection Performance](#java-collection-performance)
+    - [Sets](#sets)
+    - [Queues](#queues)
+    - [Lists](#lists)
+    - [Maps](#maps)
   - [Java Virtual Machine Stacks](#java-virtual-machine-stacks)
   - [Heap](#heap)
   - [Generational Garbage Collection](#generational-garbage-collection)
@@ -254,6 +259,38 @@ floating-point | float | 32-bit | 32-bit IEEE 754 floating-point numbers
 floating-point | double | 64-bit | 64-bit IEEE 754 floating-point numbers
 other | boolean | N/A  | ```true``` and ```false```
 
+## Java Collection Performance
+
+See also: [Big-O Cheat Sheet](http://bigocheatsheet.com/)
+
+### [Sets](https://docs.oracle.com/javase/8/docs/api/java/util/Set.html)
+
+collection | add | contains | remove
+:---: | :---: | :---: | :---:
+HashSet | O(1) | O(1) | O(1)
+LinkedHashSet | O(1) | O(1) | O(1)
+TreeSet | O(log n) | O(log n) | O(log n)
+
+### [Queues](https://docs.oracle.com/javase/8/docs/api/java/util/Queue.html)
+
+collection | add/offer | peek | contains | poll/remove
+:---: | :---: | :---: | :---: | :---:
+PriorityQueue | O(log n) | O(1) | O(n) | O(log n)
+
+### [Lists](https://docs.oracle.com/javase/8/docs/api/java/util/List.html)
+
+collection | add | get | set | contains | remove
+:---: | :---: | :---: | :---: | :---: | :---:
+ArrayList | O(1) | O(1) | O(1) | O(n) | O(n)
+
+### [Maps](https://docs.oracle.com/javase/8/docs/api/java/util/Map.html)
+
+collection | put | get | containsKey | remove
+:---: | :---: | :---: | :---: | :---:
+HashMap | O(1) | O(1) | O(1)
+LinkedHashMap | O(1) | O(1) | O(1) | O(1)
+TreeMap | O(log n) | O(log n) | O(log n) | O(log n)
+
 ## Java Virtual Machine Stacks
 
 Each Java Virtual Machine thread has a private *Java Virtual Machine stack*, created at the same time as the thread. A Java Virtual Machine stack stores frames. A Java Virtual Machine stack is analogous to the stack of a conventional language such as C: it holds local variables and partial results, and plays a part in method invocation and return.
@@ -301,11 +338,17 @@ PATCH | partially updates a resource | no | no | only cacheable if response cont
 DELETE | deletes a resource | yes | no | no
 
 [//]: # (TODO)
+
 [//]: # (https://medium.com/@sinisalouc/variance-in-java-and-scala-63af925d21dc)
+[//]: # (Java Magazine - Using the OpenJDK to Investigate Covariance in Java)
+
 [//]: # (http://www.cs.umd.edu/~pugh/java/memoryModel/DoubleCheckedLocking.html)
+
 [//]: # (https://www.infoq.com/articles/cap-twelve-years-later-how-the-rules-have-changed)
-[//]: # (https://github.com/donnemartin/system-design-primer#remote-procedure-call-rpc)
+
 [//]: # (http://static.googleusercontent.com/media/research.google.com/zh-CN/us/archive/mapreduce-osdi04.pdf)
+
+[//]: # (https://github.com/donnemartin/system-design-primer#remote-procedure-call-rpc)
 [//]: # (https://github.com/donnemartin/system-design-primer#consistency-patterns)
 [//]: # (https://github.com/donnemartin/system-design-primer#availability-patterns)
 [//]: # (https://github.com/donnemartin/system-design-primer#reverse-proxy-web-server)
