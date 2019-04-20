@@ -306,10 +306,10 @@ Given a generic class ```C<X>```:
 
 A generic collection whose element type is abstracted as a type parameter is typically:
 - read-only when **covariant**
-    - reading is allowed because the upper bound restricts the element type to be a specific type or a subtype of that type
+    - reading is allowed because the upper bound restricts the element type to a specific type or a subtype of that type
     - writing is not allowed because the element type accepted by the collection is unknown
 - write-only when **contravariant**
-    - writing is allowed because the lower bound restricts the element type to be a specific type or a supertype of that type
+    - writing is allowed because the lower bound restricts the element type to a specific type or a supertype of that type
     - reading is not allowed because the element type returned by the collection is unknown
 
 ### References
