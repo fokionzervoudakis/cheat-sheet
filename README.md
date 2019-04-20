@@ -22,6 +22,9 @@
     - [Queues](#queues)
     - [Lists](#lists)
     - [Maps](#maps)
+    - [References](#references)
+  - [Java Variance](#java-variance)
+    - [References](#references-1)
   - [Java Virtual Machine Stacks](#java-virtual-machine-stacks)
   - [Heap](#heap)
   - [Generational Garbage Collection](#generational-garbage-collection)
@@ -261,8 +264,6 @@ other | boolean | N/A  | ```true``` and ```false```
 
 ## Java Collection Performance
 
-See also: [Big-O Cheat Sheet](http://bigocheatsheet.com/)
-
 ### [Sets](https://docs.oracle.com/javase/8/docs/api/java/util/Set.html)
 
 collection | add | contains | remove
@@ -290,6 +291,31 @@ collection | put | get | containsKey | remove
 HashMap | O(1) | O(1) | O(1)
 LinkedHashMap | O(1) | O(1) | O(1) | O(1)
 TreeMap | O(log n) | O(log n) | O(log n) | O(log n)
+
+### References
+
+- [Big-O Cheat Sheet](http://bigocheatsheet.com/)
+
+## Java Variance
+
+Given a generic class ```C<X>```:
+- ```C<X>``` is said to be **covariant** with respect to ```X``` if ```S <: T``` implies ```C<S> <: C<T>``` (where ```<:``` denotes the subtyping relation)
+- ```C<X>``` is said to be **contravariant** with respect to ```X``` if ```S <: T``` implies ```C<T> <: C<S>```
+- ```C<X>``` is said to be **invariant** when ```C<S> <: C<T>``` is derived only if ```S = T```
+
+A generic collection whose element type is abstracted as a type parameter is typically:
+- read-only when **covariant**
+    - reading is allowed because the upper bound restricts the element type to be a specific type or a subtype of that type
+    - writing is not allowed because the element type accepted by the collection is unknown
+- write-only when **contravariant**
+    - writing is allowed because the lower bound restricts the element type to be a specific type or a supertype of that type
+    - reading is not allowed because the element type returned by the collection is unknown
+
+### References
+
+- [On Variance-Based Subtyping for Parametric Types](http://www.fos.kuis.kyoto-u.ac.jp/~igarashi/papers/variance.html)
+- Using the OpenJDK to Investigate Covariance in Java
+- [Variance in Java and Scala](https://medium.com/@sinisalouc/variance-in-java-and-scala-63af925d21dc)
 
 ## Java Virtual Machine Stacks
 
@@ -339,8 +365,8 @@ DELETE | deletes a resource | yes | no | no
 
 [//]: # (TODO)
 
-[//]: # (https://medium.com/@sinisalouc/variance-in-java-and-scala-63af925d21dc)
-[//]: # (Java Magazine - Using the OpenJDK to Investigate Covariance in Java)
+[//]: # (http://codekata.com/kata/kata03-how-big-how-fast/)
+[//]: # (https://en.wikipedia.org/wiki/Orders_of_magnitude_\(data\))
 
 [//]: # (http://www.cs.umd.edu/~pugh/java/memoryModel/DoubleCheckedLocking.html)
 
