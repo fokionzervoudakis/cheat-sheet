@@ -28,6 +28,7 @@
   - [Java Virtual Machine Stacks](#java-virtual-machine-stacks)
   - [Heap](#heap)
   - [Generational Garbage Collection](#generational-garbage-collection)
+    - [References](#references-2)
   - [Memory Hierarchy](#memory-hierarchy)
   - [REST](#rest)
 
@@ -336,6 +337,10 @@ While naive garbage collection examines every live object in the heap every time
 To optimize for this scenario, memory is managed in *generations* (memory pools holding objects of different ages). Garbage collection occurs in each generation when the generation fills up.
 
 The vast majority of objects are allocated in a pool dedicated to young objects (the *young generation*), and most objects die there. When the young generation fills up, it causes a *minor collection* in which only the young generation is collected; garbage in other generations isn't reclaimed. The costs of such collections are, to the first order, proportional to the number of live objects being collected; a young generation full of dead objects is collected very quickly. Typically, some fraction of the surviving objects from the young generation are moved to the *old generation* during each minor collection. Eventually, the old generation fills up and must be collected, resulting in a *major collection*, in which the entire heap is collected. Major collections usually last much longer than minor collections because a significantly larger number of objects are involved.
+
+### References
+
+[Go GC: Prioritizing low latency and simplicity](https://blog.golang.org/go15gc)
 
 ## Memory Hierarchy
 
