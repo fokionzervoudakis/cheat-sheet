@@ -372,10 +372,14 @@ DELETE | deletes a resource | yes | no | no
 
 [//]: # (http://codekata.com/kata/kata03-how-big-how-fast/)
 [//]: # (https://en.wikipedia.org/wiki/Orders_of_magnitude_\(data\))
+[//]: # (https://everythingisdata.wordpress.com/2009/10/17/numbers-everyone-should-know/)
+
+[//]: # (https://en.wikipedia.org/wiki/Power_of_two)
 
 [//]: # (http://www.cs.umd.edu/~pugh/java/memoryModel/DoubleCheckedLocking.html)
 
 [//]: # (https://www.infoq.com/articles/cap-twelve-years-later-how-the-rules-have-changed)
+[//]: # (https://en.wikipedia.org/wiki/Fallacies_of_distributed_computing)
 
 [//]: # (http://static.googleusercontent.com/media/research.google.com/zh-CN/us/archive/mapreduce-osdi04.pdf)
 
@@ -385,4 +389,6 @@ DELETE | deletes a resource | yes | no | no
 [//]: # (https://github.com/donnemartin/system-design-primer#reverse-proxy-web-server)
 [//]: # (https://gist.github.com/jboner/2841832)
 [//]: # (https://gist.github.com/hellerbarde/2843375)
+
+[//]: # (https://en.wikipedia.org/wiki/ACID_\(computer_science\))
 
