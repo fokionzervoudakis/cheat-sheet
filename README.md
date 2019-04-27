@@ -30,6 +30,7 @@
   - [Generational Garbage Collection](#generational-garbage-collection)
     - [References](#references-2)
   - [Memory Hierarchy](#memory-hierarchy)
+  - [ACID](#acid)
   - [REST](#rest)
 
 ## Algorithmic Thinking
@@ -346,6 +347,17 @@ The vast majority of objects are allocated in a pool dedicated to young objects 
 
 ![](https://upload.wikimedia.org/wikipedia/commons/0/0c/ComputerMemoryHierarchy.svg)
 
+## ACID
+
+ACID is an acronym for:
+
+- **atomicity**: a transaction is an indivisible unit that is either performed in its entirety or is not performed at all
+- **consistency**: a transaction must transform the database from one consistent state to another consistent state
+- **isolation**: transactions execute independently of one another
+- **durability**: the effects of a successfully completed (committed) transaction
+are permanently recorded in the database and must not be lost because of a
+subsequent failure
+
 ## REST
 
 A basic HTTP request consists of:
@@ -389,6 +401,4 @@ DELETE | deletes a resource | yes | no | no
 [//]: # (https://github.com/donnemartin/system-design-primer#reverse-proxy-web-server)
 [//]: # (https://gist.github.com/jboner/2841832)
 [//]: # (https://gist.github.com/hellerbarde/2843375)
-
-[//]: # (https://en.wikipedia.org/wiki/ACID_\(computer_science\))
 
