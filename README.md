@@ -390,6 +390,8 @@ DELETE | deletes a resource | yes | no | no
 
 [//]: # (http://www.cs.umd.edu/~pugh/java/memoryModel/DoubleCheckedLocking.html)
 
+[//]: # (https://en.wikipedia.org/wiki/OSI_model)
+
 [//]: # (https://www.infoq.com/articles/cap-twelve-years-later-how-the-rules-have-changed)
 [//]: # (https://en.wikipedia.org/wiki/Fallacies_of_distributed_computing)
 
