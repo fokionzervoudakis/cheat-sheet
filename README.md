@@ -2,7 +2,6 @@
 
 - [README](#readme)
   - [Data Units](#data-units)
-    - [References](#references)
   - [Algorithmic Thinking](#algorithmic-thinking)
     - [Big O Notation](#big-o-notation)
     - [Logarithms](#logarithms)
@@ -24,13 +23,10 @@
     - [Queues](#queues)
     - [Lists](#lists)
     - [Maps](#maps)
-    - [References](#references-1)
   - [Java Variance](#java-variance)
-    - [References](#references-2)
   - [Java Virtual Machine Stacks](#java-virtual-machine-stacks)
   - [Heap](#heap)
   - [Generational Garbage Collection](#generational-garbage-collection)
-    - [References](#references-3)
   - [Memory Hierarchy](#memory-hierarchy)
   - [ACID](#acid)
   - [REST](#rest)
@@ -48,8 +44,7 @@ terabyte | ```TB``` | 1024 gigabytes | ```Tb/s```
 petabyte | ```PB``` | 1024 terabytes
 exabyte | ```EB``` | 1024 terabytes
 
-### References
-
+See also:
 - [Data Measurement Chart](http://www.wu.ece.ufl.edu/links/dataRate/DataMeasurementChart.html)
 - [Data-rate units](https://en.wikipedia.org/wiki/Data-rate_units)
 - [Some selected powers of two](https://en.wikipedia.org/wiki/Power_of_two#Some_selected_powers_of_two)
@@ -69,6 +64,7 @@ notation | name
 ```O(c^n)``` | polynomial
 ```O(n!)``` | factorial
 
+See also:
 - [Big-O Cheat Sheet](http://bigocheatsheet.com/)
 - [orders of common functions](https://en.wikipedia.org/wiki/Big_O_notation#Orders_of_common_functions)
 - [table of common time complexities](https://en.wikipedia.org/wiki/Time_complexity#Table_of_common_time_complexities)
@@ -274,16 +270,20 @@ If a number is encoded using [two's complement](#negative-numbers-and-twos-compl
 
 ## Java Primitive Data Types
 
-category | type | size | range
-:---: | :---: | :---: | :---:
-integral | byte | 8-bit | -128 to 127
-integral | short | 16-bit | -32768 to 32767
-integral | int | 32-bit | -2147483648 to 2147483647
-integral | long | 64-bit | -9223372036854775808 to 9223372036854775807
+category | type | size | signed range | signed exp | unsigned range | unsigned exp
+:---: | :---: | :---: | :---: | :---: | :---: | :---:
+integral | byte | 8-bit | -128 to 127 | $−(2^7)$ to $2^7 − 1$ | 0 to 255 | $2^8 − 1$
+integral | short | 16-bit | -32,768 to 32,767 | $−(2^{15})$ to $2^{15} − 1$ | 0 to 65,535 | $2^{16} − 1$
+integral | int | 32-bit | -2,147,483,648 to 2,147,483,647 | $−(2^{31})$ to $2^{31} − 1$ | 0 to 4,294,967,295 | 0 to $2^{32} − 1$
+integral | long | 64-bit | -9,223,372,036,854,775,808 to 9,223,372,036,854,775,807 | $−(2^{63})$ to $2^{63} − 1$ | 0 to 18,446,744,073,709,551,615 | 0 to $2^{64} − 1$
 integral | char | 16-bit | ```'\u0000'``` to ```'\uffff'```
 floating-point | float | 32-bit | 32-bit IEEE 754 floating-point numbers
 floating-point | double | 64-bit | 64-bit IEEE 754 floating-point numbers
 other | boolean | N/A  | ```true``` and ```false```
+
+See also:
+- [Common integral data types](https://en.wikipedia.org/wiki/Integer_(computer_science)#Common_integral_data_types)
+- [Orders of magnitude (data)](https://en.wikipedia.org/wiki/Orders_of_magnitude_(data))
 
 ## Java Collection Performance
 
@@ -315,8 +315,7 @@ HashMap | O(1) | O(1) | O(1)
 LinkedHashMap | O(1) | O(1) | O(1) | O(1)
 TreeMap | O(log n) | O(log n) | O(log n) | O(log n)
 
-### References
-
+See also:
 - [Big-O Cheat Sheet](http://bigocheatsheet.com/)
 
 ## Java Variance
@@ -334,8 +333,7 @@ A generic collection whose element type is abstracted as a type parameter is typ
     - writing is allowed because the lower bound restricts the element type to a specific type or a supertype of that type
     - reading is not allowed because the element type returned by the collection is unknown
 
-### References
-
+See also:
 - [On Variance-Based Subtyping for Parametric Types](http://www.fos.kuis.kyoto-u.ac.jp/~igarashi/papers/variance.html)
 - Using the OpenJDK to Investigate Covariance in Java
 - [Variance in Java and Scala](https://medium.com/@sinisalouc/variance-in-java-and-scala-63af925d21dc)
@@ -360,9 +358,8 @@ To optimize for this scenario, memory is managed in *generations* (memory pools 
 
 The vast majority of objects are allocated in a pool dedicated to young objects (the *young generation*), and most objects die there. When the young generation fills up, it causes a *minor collection* in which only the young generation is collected; garbage in other generations isn't reclaimed. The costs of such collections are, to the first order, proportional to the number of live objects being collected; a young generation full of dead objects is collected very quickly. Typically, some fraction of the surviving objects from the young generation are moved to the *old generation* during each minor collection. Eventually, the old generation fills up and must be collected, resulting in a *major collection*, in which the entire heap is collected. Major collections usually last much longer than minor collections because a significantly larger number of objects are involved.
 
-### References
-
-[Go GC: Prioritizing low latency and simplicity](https://blog.golang.org/go15gc)
+See also:
+- [Go GC: Prioritizing low latency and simplicity](https://blog.golang.org/go15gc)
 
 ## Memory Hierarchy
 
@@ -371,7 +368,6 @@ The vast majority of objects are allocated in a pool dedicated to young objects 
 ## ACID
 
 ACID is an acronym for:
-
 - **atomicity**: a transaction is an indivisible unit that is either performed in its entirety or is not performed at all
 - **consistency**: a transaction must transform the database from one consistent state to another consistent state
 - **isolation**: transactions execute independently of one another
@@ -382,12 +378,10 @@ subsequent failure
 ## REST
 
 A basic HTTP request consists of:
-
 - a verb (or method)
 - a resource (or endpoint)
 
 Each HTTP verb:
-
 - has a meaning
 - is idempotent or not: *a request method is considered "idempotent" if the intended effect on the server of multiple identical requests with that method is the same as the effect for a single such request* (see [RFC7231: Idempotent methods](https://tools.ietf.org/html/rfc7231#section-4.2.2)).
 - is safe or not: *request methods are considered "safe" if their defined semantics are essentially read-only* (see [RFC7231: Safe methods](https://tools.ietf.org/html/rfc7231#section-4.2.1)).
@@ -403,8 +397,6 @@ DELETE | deletes a resource | yes | no | no
 
 [//]: # (TODO)
 
-[//]: # (http://codekata.com/kata/kata03-how-big-how-fast/)
-[//]: # (https://en.wikipedia.org/wiki/Orders_of_magnitude_\(data\))
 [//]: # (https://everythingisdata.wordpress.com/2009/10/17/numbers-everyone-should-know/)
 
 [//]: # (http://www.cs.umd.edu/~pugh/java/memoryModel/DoubleCheckedLocking.html)
