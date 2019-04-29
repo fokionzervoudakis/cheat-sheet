@@ -1,6 +1,8 @@
 # README
 
 - [README](#readme)
+  - [Data Units](#data-units)
+    - [References](#references)
   - [Algorithmic Thinking](#algorithmic-thinking)
     - [Big O Notation](#big-o-notation)
     - [Logarithms](#logarithms)
@@ -22,16 +24,35 @@
     - [Queues](#queues)
     - [Lists](#lists)
     - [Maps](#maps)
-    - [References](#references)
-  - [Java Variance](#java-variance)
     - [References](#references-1)
+  - [Java Variance](#java-variance)
+    - [References](#references-2)
   - [Java Virtual Machine Stacks](#java-virtual-machine-stacks)
   - [Heap](#heap)
   - [Generational Garbage Collection](#generational-garbage-collection)
-    - [References](#references-2)
+    - [References](#references-3)
   - [Memory Hierarchy](#memory-hierarchy)
   - [ACID](#acid)
   - [REST](#rest)
+
+## Data Units
+
+name | symbol | size | bit rate
+:---: | :---: | :---: | :---:
+bit | ```b``` | 0 or 1 | ```bit/s```
+byte | ```B``` | 8 bits | ```B/s```
+kilobyte | ```KB``` | 1024 bytes | ```kb/s```
+megabyte | ```MB``` | 1024 kilobytes | ```Mb/s```
+gigabyte | ```GB``` | 1024 megabytes | ```Gb/s```
+terabyte | ```TB``` | 1024 gigabytes | ```Tb/s```
+petabyte | ```PB``` | 1024 terabytes
+exabyte | ```EB``` | 1024 terabytes
+
+### References
+
+- [Data Measurement Chart](http://www.wu.ece.ufl.edu/links/dataRate/DataMeasurementChart.html)
+- [Data-rate units](https://en.wikipedia.org/wiki/Data-rate_units)
+- [Some selected powers of two](https://en.wikipedia.org/wiki/Power_of_two#Some_selected_powers_of_two)
 
 ## Algorithmic Thinking
 
@@ -385,8 +406,6 @@ DELETE | deletes a resource | yes | no | no
 [//]: # (http://codekata.com/kata/kata03-how-big-how-fast/)
 [//]: # (https://en.wikipedia.org/wiki/Orders_of_magnitude_\(data\))
 [//]: # (https://everythingisdata.wordpress.com/2009/10/17/numbers-everyone-should-know/)
-
-[//]: # (https://en.wikipedia.org/wiki/Power_of_two)
 
 [//]: # (http://www.cs.umd.edu/~pugh/java/memoryModel/DoubleCheckedLocking.html)
 
