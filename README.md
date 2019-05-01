@@ -17,16 +17,17 @@
       - [Left Shifts](#left-shifts)
       - [Logical Right Shifts](#logical-right-shifts)
       - [Arithmetic Right Shifts](#arithmetic-right-shifts)
-  - [Java Primitive Data Types](#java-primitive-data-types)
-  - [Java Collection Performance](#java-collection-performance)
-    - [Sets](#sets)
-    - [Queues](#queues)
-    - [Lists](#lists)
-    - [Maps](#maps)
-  - [Java Variance](#java-variance)
-  - [Java Virtual Machine Stacks](#java-virtual-machine-stacks)
-  - [Heap](#heap)
-  - [Generational Garbage Collection](#generational-garbage-collection)
+  - [Java](#java)
+    - [Java Primitive Data Types](#java-primitive-data-types)
+    - [Java Collection Performance](#java-collection-performance)
+      - [Sets](#sets)
+      - [Queues](#queues)
+      - [Lists](#lists)
+      - [Maps](#maps)
+    - [Java Variance](#java-variance)
+    - [Java Virtual Machine Stacks](#java-virtual-machine-stacks)
+    - [Heap](#heap)
+    - [Generational Garbage Collection](#generational-garbage-collection)
   - [Memory Hierarchy](#memory-hierarchy)
   - [ACID](#acid)
   - [REST](#rest)
@@ -268,7 +269,9 @@ If a number is encoded using [two's complement](#negative-numbers-and-twos-compl
 // 1111 >>> 1 = 0111
 ```
 
-## Java Primitive Data Types
+## Java
+
+### Java Primitive Data Types
 
 category | type | size | signed range | signed exp | unsigned range | unsigned exp
 :---: | :---: | :---: | :---: | :---: | :---: | :---:
@@ -285,9 +288,9 @@ See also:
 - [Common integral data types](https://en.wikipedia.org/wiki/Integer_(computer_science)#Common_integral_data_types)
 - [Orders of magnitude (data)](https://en.wikipedia.org/wiki/Orders_of_magnitude_(data))
 
-## Java Collection Performance
+### Java Collection Performance
 
-### [Sets](https://docs.oracle.com/javase/8/docs/api/java/util/Set.html)
+#### [Sets](https://docs.oracle.com/javase/8/docs/api/java/util/Set.html)
 
 collection | add | contains | remove
 :---: | :---: | :---: | :---:
@@ -295,21 +298,21 @@ HashSet | O(1) | O(1) | O(1)
 LinkedHashSet | O(1) | O(1) | O(1)
 TreeSet | O(log n) | O(log n) | O(log n)
 
-### [Queues](https://docs.oracle.com/javase/8/docs/api/java/util/Queue.html)
+#### [Queues](https://docs.oracle.com/javase/8/docs/api/java/util/Queue.html)
 
 collection | add/offer | peek | contains | poll/remove
 :---: | :---: | :---: | :---: | :---:
 LinkedList | O(1) | O(1) | O(n) | O(1)
 PriorityQueue | O(log n) | O(1) | O(n) | O(log n)
 
-### [Lists](https://docs.oracle.com/javase/8/docs/api/java/util/List.html)
+#### [Lists](https://docs.oracle.com/javase/8/docs/api/java/util/List.html)
 
 collection | add | get | set | contains | remove
 :---: | :---: | :---: | :---: | :---: | :---:
 ArrayList | O(1) | O(1) | O(1) | O(n) | O(n)
 LinkedList | O(1) | O(n) | O(n) | O(n) | O(1)
 
-### [Maps](https://docs.oracle.com/javase/8/docs/api/java/util/Map.html)
+#### [Maps](https://docs.oracle.com/javase/8/docs/api/java/util/Map.html)
 
 collection | put | get | containsKey | remove
 :---: | :---: | :---: | :---: | :---:
@@ -320,7 +323,7 @@ TreeMap | O(log n) | O(log n) | O(log n) | O(log n)
 See also:
 - [Big-O Cheat Sheet](http://bigocheatsheet.com/)
 
-## Java Variance
+### Java Variance
 
 Given a generic class ```C<X>```:
 - ```C<X>``` is said to be **covariant** with respect to ```X``` if ```S <: T``` implies ```C<S> <: C<T>``` (where ```<:``` denotes the subtyping relation)
@@ -340,17 +343,17 @@ See also:
 - Using the OpenJDK to Investigate Covariance in Java
 - [Variance in Java and Scala](https://medium.com/@sinisalouc/variance-in-java-and-scala-63af925d21dc)
 
-## Java Virtual Machine Stacks
+### Java Virtual Machine Stacks
 
 Each Java Virtual Machine thread has a private *Java Virtual Machine stack*, created at the same time as the thread. A Java Virtual Machine stack stores frames. A Java Virtual Machine stack is analogous to the stack of a conventional language such as C: it holds local variables and partial results, and plays a part in method invocation and return.
 
-## Heap
+### Heap
 
 The Java Virtual Machine has a *heap* that is shared among all Java Virtual Machine threads. The heap is the run-time data area from which memory for all class instances and arrays is allocated.
 
 The heap is created on virtual machine start-up. Heap storage for objects is reclaimed by an automatic storage management system (known as a *garbage collector*); objects are never explicitly deallocated.
 
-## Generational Garbage Collection
+### Generational Garbage Collection
 
 An object is considered garbage and its memory can be reused by the VM when it can no longer be reached from any reference of any other live object in the running program.
 
