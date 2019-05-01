@@ -299,6 +299,7 @@ TreeSet | O(log n) | O(log n) | O(log n)
 
 collection | add/offer | peek | contains | poll/remove
 :---: | :---: | :---: | :---: | :---:
+LinkedList | O(1) | O(1) | O(n) | O(1)
 PriorityQueue | O(log n) | O(1) | O(n) | O(log n)
 
 ### [Lists](https://docs.oracle.com/javase/8/docs/api/java/util/List.html)
@@ -306,6 +307,7 @@ PriorityQueue | O(log n) | O(1) | O(n) | O(log n)
 collection | add | get | set | contains | remove
 :---: | :---: | :---: | :---: | :---: | :---:
 ArrayList | O(1) | O(1) | O(1) | O(n) | O(n)
+LinkedList | O(1) | O(n) | O(n) | O(n) | O(1)
 
 ### [Maps](https://docs.oracle.com/javase/8/docs/api/java/util/Map.html)
 
