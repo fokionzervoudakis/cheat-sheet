@@ -404,6 +404,8 @@ DELETE | deletes a resource | yes | no | no
 
 [//]: # (https://everythingisdata.wordpress.com/2009/10/17/numbers-everyone-should-know/)
 
+[//]: # (https://en.wikipedia.org/wiki/External_sorting#External_merge_sort)
+
 [//]: # (http://www.cs.umd.edu/~pugh/java/memoryModel/DoubleCheckedLocking.html)
 
 [//]: # (https://en.wikipedia.org/wiki/OSI_model)
