@@ -4,6 +4,7 @@
   - [Data Units](#data-units)
   - [Algorithmic Thinking](#algorithmic-thinking)
     - [Big O Notation](#big-o-notation)
+    - [NP-completeness](#np-completeness)
     - [Logarithms](#logarithms)
   - [Bit Manipulation](#bit-manipulation)
     - [Binary Numbers](#binary-numbers)
@@ -54,22 +55,36 @@ See also:
 
 ### Big O Notation
 
-notation | name
-:---: | :---:
-```O(1)``` | constant
-```O(log n)``` | logarithmic
-```O(n)``` | constant
-```O(n log n)``` | linearithmic/loglinear
-```O(n^2)``` | quadratic
-```O(n^c)``` | polynomial
-```O(c^n)``` | polynomial
-```O(n!)``` | factorial
+notation | name | complexity class
+:---: | :---: | :---:
+$O(1)$ | constant time
+$O(log n)$ | logarithmic time
+$O(n)$ | constant time
+$O(n log n)$ | log-linear time
+$O(n^2)$ | quadratic time
+$O(n^c)$ | polynomial time | **P**
+$O(c^n)$ | exponential time (with linear exponent) | **E**
+$O(c^{poly(n)})$ | exponential time | **EXPTIME**
+$O(n!)$ | factorial
 
 See also:
 - [Big-O Cheat Sheet](http://bigocheatsheet.com/)
-- [orders of common functions](https://en.wikipedia.org/wiki/Big_O_notation#Orders_of_common_functions)
-- [table of common time complexities](https://en.wikipedia.org/wiki/Time_complexity#Table_of_common_time_complexities)
-- [NP-completeness](https://en.wikipedia.org/wiki/NP-completeness)
+- [Orders of common functions](https://en.wikipedia.org/wiki/Big_O_notation#Orders_of_common_functions)
+- [Table of common time complexities](https://en.wikipedia.org/wiki/Time_complexity#Table_of_common_time_complexities)
+
+### NP-completeness
+
+- The class **P** consists of problems that are solvable in polynomial time.
+- The class **NP** consists of problems that are *verifiable* in polynomial time.
+- Any problem in **P** is also in **NP**. And any problem in **NP** is also in **EXPTIME**. More formally:
+  - $P \subseteq NP \subseteq PSPACE \subseteq EXPTIME \subseteq NEXPTIME \subseteq EXPSPACE$
+  - $P \subsetneq EXPTIME$
+  - $NP \subsetneq NEXPTIME$
+- A problem is in class **NPC** (and is referred to as being **NP-complete**) if it is in **NP** and is as *hard* as any problem in **NP**.
+- If any **NP-complete** problem can be solved in polynomial time, then every problem in **NP** can be solved in polynomial time.
+
+See also:
+- [EXPTIME](https://en.wikipedia.org/wiki/EXPTIME)
 
 ![](https://upload.wikimedia.org/wikipedia/commons/a/a0/P_np_np-complete_np-hard.svg)
 
@@ -95,7 +110,7 @@ $$
 
 decimal | binary | interpretation | powers
 :---: | :---: | :---: | :---:
-0 | 0000 | 0 + 0 + 0 + 0 |
+0 | 0000 | 0 + 0 + 0 + 0
 1 | 0001 | 0 + 0 + 0 + 1 | $2^0$
 2 | 0010 | 0 + 0 + 2 + 0 | $2^1$
 3 | 0011 | 0 + 0 + 2 + 1 | $2^1 + 2^0$
@@ -273,12 +288,12 @@ If a number is encoded using [two's complement](#negative-numbers-and-twos-compl
 
 ### Java Primitive Data Types
 
-category | type | size | signed range | signed exp | unsigned range | unsigned exp
-:---: | :---: | :---: | :---: | :---: | :---: | :---:
-integral | byte | 8-bit | -128 to 127 | $−(2^7)$ to $2^7 − 1$ | 0 to 255 | $2^8 − 1$
-integral | short | 16-bit | -32,768 to 32,767 | $−(2^{15})$ to $2^{15} − 1$ | 0 to 65,535 | $2^{16} − 1$
-integral | int | 32-bit | -2,147,483,648 to 2,147,483,647 | $−(2^{31})$ to $2^{31} − 1$ | 0 to 4,294,967,295 | 0 to $2^{32} − 1$
-integral | long | 64-bit | -9,223,372,036,854,775,808 to 9,223,372,036,854,775,807 | $−(2^{63})$ to $2^{63} − 1$ | 0 to 18,446,744,073,709,551,615 | 0 to $2^{64} − 1$
+category | type | size | signed range | signed exp
+:---: | :---: | :---: | :---: | :---:
+integral | byte | 8-bit | -128 to 127 | $−(2^7)$ to $2^7 − 1$
+integral | short | 16-bit | -32,768 to 32,767 | $−(2^{15})$ to $2^{15} − 1$
+integral | int | 32-bit | -2,147,483,648 to 2,147,483,647 | $−(2^{31})$ to $2^{31} − 1$
+integral | long | 64-bit | -9,223,372,036,854,775,808 to 9,223,372,036,854,775,807 | $−(2^{63})$ to $2^{63} − 1$
 integral | char | 16-bit | ```'\u0000'``` to ```'\uffff'```
 floating-point | float | 32-bit | 32-bit IEEE 754 floating-point numbers
 floating-point | double | 64-bit | 64-bit IEEE 754 floating-point numbers
