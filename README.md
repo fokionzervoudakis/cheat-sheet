@@ -29,6 +29,8 @@
     - [Java Virtual Machine Stacks](#java-virtual-machine-stacks)
     - [Heap](#heap)
     - [Generational Garbage Collection](#generational-garbage-collection)
+  - [Networking](#networking)
+    - [Open Systems Interconnection (OSI) Reference Model](#open-systems-interconnection-osi-reference-model)
   - [Memory Hierarchy](#memory-hierarchy)
   - [ACID](#acid)
   - [REST](#rest)
@@ -381,6 +383,27 @@ The vast majority of objects are allocated in a pool dedicated to young objects 
 See also:
 - [Go GC: Prioritizing low latency and simplicity](https://blog.golang.org/go15gc)
 
+## Networking
+
+### Open Systems Interconnection (OSI) Reference Model
+
+layer \# | layer name | data unit | protocol examples | Internet layer
+:---: | :---: | :---: | :---: | :---:
+7 | application | data | FTP, HTTP | application
+6 | presentation | data | ASCII, MPEG | application
+5 | session | data | named pipes, sockets | application
+4 | transport | TCP segment, datagram | TCP, UDP| transport
+3 | network | packet | IP (IPv4, IPv6) | Internet
+2 | data link | frame | IEEE 802.3 (Ethernet) | link
+1 | physical | one or more bits
+
+- A **network (layer 4) load balancer** functions at the fourth layer of the OSI reference model.
+- An **application (layer 7) load balancer** functions at the seventh layer of the OSI reference model.
+
+See also:
+- [RFC 1122 - Requirements for Internet Hosts - Communication Layers](https://tools.ietf.org/html/rfc1122#section-2.2)
+- [Using AWS Application Load Balancer and Network Load Balancer with EC2 Container Service](https://medium.com/containers-on-aws/using-aws-application-load-balancer-and-network-load-balancer-with-ec2-container-service-d0cb0b1d5ae5)
+
 ## Memory Hierarchy
 
 ![](https://upload.wikimedia.org/wikipedia/commons/0/0c/ComputerMemoryHierarchy.svg)
@@ -422,8 +445,6 @@ DELETE | deletes a resource | yes | no | no
 [//]: # (https://en.wikipedia.org/wiki/External_sorting#External_merge_sort)
 
 [//]: # (http://www.cs.umd.edu/~pugh/java/memoryModel/DoubleCheckedLocking.html)
-
-[//]: # (https://en.wikipedia.org/wiki/OSI_model)
 
 [//]: # (https://www.infoq.com/articles/cap-twelve-years-later-how-the-rules-have-changed)
 [//]: # (https://en.wikipedia.org/wiki/Fallacies_of_distributed_computing)
