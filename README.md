@@ -69,6 +69,12 @@ $O(c^n)$ | exponential time (with linear exponent) | **E**
 $O(c^{poly(n)})$ | exponential time | **EXPTIME**
 $O(n!)$ | factorial
 
+- all pairs: $n^2$
+- all triples: $n^3$
+- all subsets of set $n$: $2^n$
+- all $k$ combinations of set $n$ ($n$ choose $k$): ${n \choose k} = n!/(k!(n-k)!)$
+- all permutations: $n!$
+
 See also:
 - [Big-O Cheat Sheet](http://bigocheatsheet.com/)
 - [Orders of common functions](https://en.wikipedia.org/wiki/Big_O_notation#Orders_of_common_functions)
