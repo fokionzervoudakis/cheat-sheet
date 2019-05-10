@@ -1,7 +1,6 @@
 # README
 
 - [README](#readme)
-  - [Data Units](#data-units)
   - [Algorithmic Thinking](#algorithmic-thinking)
     - [Big O Notation](#big-o-notation)
     - [NP-completeness](#np-completeness)
@@ -27,27 +26,12 @@
     - [Generational Garbage Collection](#generational-garbage-collection)
   - [Networking](#networking)
     - [Open Systems Interconnection (OSI) Reference Model](#open-systems-interconnection-osi-reference-model)
+  - [Numbers](#numbers)
+    - [Data Units](#data-units)
+    - [Powers of Two](#powers-of-two)
   - [Memory Hierarchy](#memory-hierarchy)
   - [ACID](#acid)
   - [REST](#rest)
-
-## Data Units
-
-name | symbol | size | bit rate
-:---: | :---: | :---: | :---:
-bit | ```b``` | 0 or 1 | ```bit/s```
-byte | ```B``` | 8 bits | ```B/s```
-kilobyte | ```KB``` | 1024 bytes | ```kb/s```
-megabyte | ```MB``` | 1024 kilobytes | ```Mb/s```
-gigabyte | ```GB``` | 1024 megabytes | ```Gb/s```
-terabyte | ```TB``` | 1024 gigabytes | ```Tb/s```
-petabyte | ```PB``` | 1024 terabytes
-exabyte | ```EB``` | 1024 terabytes
-
-See also:
-- [Data Measurement Chart](http://www.wu.ece.ufl.edu/links/dataRate/DataMeasurementChart.html)
-- [Data-rate units](https://en.wikipedia.org/wiki/Data-rate_units)
-- [Some selected powers of two](https://en.wikipedia.org/wiki/Power_of_two#Some_selected_powers_of_two)
 
 ## Algorithmic Thinking
 
@@ -292,6 +276,15 @@ If a number is encoded using [two's complement](#negative-numbers-and-twos-compl
 
 ### Java Primitive Data Types
 
+- **byte**: 8-bit signed two's complement integer
+- **short**: 16-bit signed two's complement integer
+- **int**: 32-bit signed two's complement integer
+- **long**: 64-bit unsigned (Java SE 8 and later) two's complement integer
+- **float**: a single-precision 32-bit IEEE 754 floating point
+- **double**: a double-precision 64-bit IEEE 754 floating point
+- **boolean**: has only two possible values: true and false
+- **char**: a single 16-bit Unicode character
+
 category | type | size | signed range | signed exp
 :---: | :---: | :---: | :---: | :---:
 integral | byte | 8-bit | -128 to 127 | $−(2^7)$ to $2^7 − 1$
@@ -305,6 +298,7 @@ other | boolean | N/A  | ```true``` and ```false```
 
 See also:
 - [Common integral data types](https://en.wikipedia.org/wiki/Integer_(computer_science)#Common_integral_data_types)
+- [Some selected powers of two](https://en.wikipedia.org/wiki/Power_of_two#Some_selected_powers_of_two)
 - [Orders of magnitude (data)](https://en.wikipedia.org/wiki/Orders_of_magnitude_(data))
 
 See also:
@@ -418,6 +412,56 @@ layer \# | layer name | data unit | protocol examples | Internet layer
 See also:
 - [RFC 1122 - Requirements for Internet Hosts - Communication Layers](https://tools.ietf.org/html/rfc1122#section-2.2)
 - [Using AWS Application Load Balancer and Network Load Balancer with EC2 Container Service](https://medium.com/containers-on-aws/using-aws-application-load-balancer-and-network-load-balancer-with-ec2-container-service-d0cb0b1d5ae5)
+
+## Numbers
+
+### Data Units
+
+name | symbol | size | bit rate
+:---: | :---: | :---: | :---:
+bit | ```b``` | 0 or 1 | ```bit/s```
+byte | ```B``` | 8 bits | ```B/s```
+kilobyte | ```KB``` | 1024 bytes | ```kb/s```
+megabyte | ```MB``` | 1024 kilobytes | ```Mb/s```
+gigabyte | ```GB``` | 1024 megabytes | ```Gb/s```
+terabyte | ```TB``` | 1024 gigabytes | ```Tb/s```
+petabyte | ```PB``` | 1024 terabytes
+exabyte | ```EB``` | 1024 terabytes
+
+See also:
+- [Data Measurement Chart](http://www.wu.ece.ufl.edu/links/dataRate/DataMeasurementChart.html)
+- [Data-rate units](https://en.wikipedia.org/wiki/Data-rate_units)
+- [Some selected powers of two](https://en.wikipedia.org/wiki/Power_of_two#Some_selected_powers_of_two)
+
+### Powers of Two
+
+base 2 | bit size | binary value | description
+:---: | :---: | :---: | :---:
+$2^0$ | 1
+$2^1$ | 2 | ```1b```
+$2^2$ | 4
+$2^3$ | 8
+$2^4$ | 16
+$2^5$ | 32
+$2^6$ | 64
+$2^7$ | 128 || signed byte
+$2^8$ | 256 | ```1B``` | unsigned byte
+$2^9$ | 512
+$2^{10}$ | 1024 | ```1KB```
+$2^{15}$ | 32,768 || 16-bit word, signed short
+$2^{16}$ | 65,536 || 16-bit word, unsigned short, char
+$2^{20}$ | 1,048,576 | ```1MB```
+$2^{30}$ | 1,073,741,824 | ```1GB```
+$2^{31}$ | 2,147,483,648 || 32-bit word, signed int
+$2^{32}$ | 4,294,967,296 || 32-bit word, unsigned int, float
+$2^{40}$ | 1,099,511,627,776 | ```1TB```
+$2^{63}$ | 9,223,372,036,854,775,808 || 64-bit word, signed long
+$2^{64}$ | 18,446,744,073,709,551,616 || 64-bit word, unsigned long, double
+
+See also:
+- [Common integral data types](https://en.wikipedia.org/wiki/Integer_(computer_science)#Common_integral_data_types)
+- [Some selected powers of two](https://en.wikipedia.org/wiki/Power_of_two#Some_selected_powers_of_two)
+- [Orders of magnitude (data)](https://en.wikipedia.org/wiki/Orders_of_magnitude_(data))
 
 ## Memory Hierarchy
 
