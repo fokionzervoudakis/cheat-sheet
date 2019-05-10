@@ -20,11 +20,7 @@
       - [Arithmetic Right Shifts](#arithmetic-right-shifts)
   - [Java](#java)
     - [Java Primitive Data Types](#java-primitive-data-types)
-    - [Java Collection Performance](#java-collection-performance)
-      - [Sets](#sets)
-      - [Queues](#queues)
-      - [Lists](#lists)
-      - [Maps](#maps)
+    - [Java Class Library (JCL) Performance](#java-class-library-jcl-performance)
     - [Java Variance](#java-variance)
     - [Java Virtual Machine Stacks](#java-virtual-machine-stacks)
     - [Heap](#heap)
@@ -311,40 +307,53 @@ See also:
 - [Common integral data types](https://en.wikipedia.org/wiki/Integer_(computer_science)#Common_integral_data_types)
 - [Orders of magnitude (data)](https://en.wikipedia.org/wiki/Orders_of_magnitude_(data))
 
-### Java Collection Performance
-
-#### [Sets](https://docs.oracle.com/javase/8/docs/api/java/util/Set.html)
-
-collection | add | contains | remove
-:---: | :---: | :---: | :---:
-HashSet | O(1) | O(1) | O(1)
-LinkedHashSet | O(1) | O(1) | O(1)
-TreeSet | O(log n) | O(log n) | O(log n)
-
-#### [Queues](https://docs.oracle.com/javase/8/docs/api/java/util/Queue.html)
-
-collection | add/offer | peek | contains | poll/remove
-:---: | :---: | :---: | :---: | :---:
-LinkedList | O(1) | O(1) | O(n) | O(1)
-PriorityQueue | O(log n) | O(1) | O(n) | O(log n)
-
-#### [Lists](https://docs.oracle.com/javase/8/docs/api/java/util/List.html)
-
-collection | add | get | set | contains | remove
-:---: | :---: | :---: | :---: | :---: | :---:
-ArrayList | O(1) | O(1) | O(1) | O(n) | O(n)
-LinkedList | O(1) | O(n) | O(n) | O(n) | O(1)
-
-#### [Maps](https://docs.oracle.com/javase/8/docs/api/java/util/Map.html)
-
-collection | put | get | containsKey | remove
-:---: | :---: | :---: | :---: | :---:
-HashMap | O(1) | O(1) | O(1)
-LinkedHashMap | O(1) | O(1) | O(1) | O(1)
-TreeMap | O(log n) | O(log n) | O(log n) | O(log n)
-
 See also:
 - [Big-O Cheat Sheet](http://bigocheatsheet.com/)
+
+### Java Class Library (JCL) Performance
+
+```java.lang```
+- ```StringBuilder#append(char)```: amortized constant time
+- ```StringBuilder#append(String)```:
+  - best case: amortized constant time
+  - worst case: amortized linear time
+- ```System#arraycopy```: platform-dependent
+
+> The VM makes guarantees about the atomicity of accesses to primitive variables. These guarantees also apply to elements of arrays. In particular, 8-bit, 16-bit, and 32-bit accesses must be atomic and must not cause "word tearing". Accesses to 64-bit array elements must either be atomic or treated as two 32-bit operations. References are always read and written atomically, regardless of the number of bits used to represent them.
+>
+> We can't rely on standard ```libc``` functions like ```memcpy()``` and ```memmove()``` in our implementation of ```System.arraycopy()```, because they may copy byte-by-byte (either for the full run or for "unaligned" parts at the start or end). We need to use functions that guarantee 16-bit or 32-bit atomicity as appropriate.
+
+See also:
+- [The Android Open Source Project](https://android.googlesource.com/platform/dalvik.git/+/android-4.2.2_r1/vm/native/java_lang_System.cpp)
+- [OpenJDK implementation of System.arraycopy](https://stackoverflow.com/a/11210623/9349175)
+- [jdk8/jdk8/hotspot: 87ee5ee27509 src/share/vm/oops/objArrayKlass.cpp](http://hg.openjdk.java.net/jdk8/jdk8/hotspot/file/tip/src/share/vm/oops/objArrayKlass.cpp)
+- [jdk7/jdk7/hotspot: b92c45f2bc75 src/share/vm/utilities/copy.hpp](http://hg.openjdk.java.net/jdk7/jdk7/hotspot/file/b92c45f2bc75/src/share/vm/utilities/copy.hpp)
+- [jdk8/jdk8/hotspot: 87ee5ee27509 src/os_cpu/windows_x86/vm/copy_windows_x86.inline.hpp](http://hg.openjdk.java.net/jdk8/jdk8/hotspot/file/87ee5ee27509/src/os_cpu/windows_x86/vm/copy_windows_x86.inline.hpp)
+
+```java.util.List```
+- ```ArrayList```
+  - constant time for methods ```get``` and ```set```
+  - amortized constant time for method ```add```
+- ```LinkedList```
+  - constant time for methods ```add/offer```, ```remove/poll``` and ```peek```
+  - linear time for methods ```contains(Object)``` and ```remove(Object)```
+- ```PriorityQueue```
+  - log(n) time for methods ```add/offer``` and ```remove/poll```
+  - linear time for methods ```contains(Object)``` and ```remove(Object)```
+  - constant time for method ```peek```
+
+```java.util.Map```
+- ```HashMap/LinkedHashMap```
+  - constant time for methods ```containsKey``` and ```get```
+  - amortized constant time for methods ```put``` and ```remove```
+- ```TreeMap```
+  - guaranteed log(n) time for methods ```put```, ```get```, ```containsKey``` and ```remove```
+
+```java.util.Set```
+- ```HashSet/LinkedHashSet```
+  - constant time for methods ```add```, ```contains``` and ```remove```
+- ```TreeSet```
+  - guaranteed log(n) time for methods ```add```, ```contains``` and ```remove```
 
 ### Java Variance
 
