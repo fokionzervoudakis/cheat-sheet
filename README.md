@@ -110,6 +110,11 @@ decimal | binary | interpretation | powers
 9 | 1001 | 8 + 0 + 0 + 1 | $2^3 + 2^0$
 10 | 1010 | 8 + 0 + 2 + 0 | $2^3 + 2^1$
 
+[//]: # (TODO)
+
+[//]: # (https://en.wikipedia.org/wiki/Binary_number#Hexadecimal)
+[//]: # (https://en.wikipedia.org/wiki/Binary_number#Octal)
+
 #### Negative Numbers and Two's Complement
 
 decimal | binary | interpretation
@@ -285,16 +290,16 @@ If a number is encoded using [two's complement](#negative-numbers-and-twos-compl
 - **boolean**: has only two possible values: true and false
 - **char**: a single 16-bit Unicode character
 
-category | type | size | signed range | signed exp
-:---: | :---: | :---: | :---: | :---:
-integral | byte | 8-bit | -128 to 127 | $−(2^7)$ to $2^7 − 1$
-integral | short | 16-bit | -32,768 to 32,767 | $−(2^{15})$ to $2^{15} − 1$
-integral | int | 32-bit | -2,147,483,648 to 2,147,483,647 | $−(2^{31})$ to $2^{31} − 1$
-integral | long | 64-bit | -9,223,372,036,854,775,808 to 9,223,372,036,854,775,807 | $−(2^{63})$ to $2^{63} − 1$
-integral | char | 16-bit | ```'\u0000'``` to ```'\uffff'```
-floating-point | float | 32-bit | 32-bit IEEE 754 floating-point numbers
-floating-point | double | 64-bit | 64-bit IEEE 754 floating-point numbers
-other | boolean | N/A  | ```true``` and ```false```
+category | Java type | native type | size | range | exponent
+:---: | :---: | :---: | :---: | :---: | :---:
+integral | byte | jbyte | 8-bit signed | -128 to 127 | $−(2^7)$ to $2^7 − 1$
+integral | short | jshort | 16-bit signed | -32,768 to 32,767 | $−(2^{15})$ to $2^{15} − 1$ |
+integral | int | jint | 32-bit signed | -2,147,483,648 to 2,147,483,647 | $−(2^{31})$ to $2^{31} − 1$
+integral | long | jlong | 64-bit signed | -9,223,372,036,854,775,808 to 9,223,372,036,854,775,807 | $−(2^{63})$ to $2^{63} − 1$
+integral | char | jchar | 16-bit | ```'\u0000'``` to ```'\uffff'```
+floating-point | float | jfloat | 32-bit | 32-bit IEEE 754 floating-point numbers
+floating-point | double | jdouble | 64-bit | 64-bit IEEE 754 floating-point numbers
+other | boolean | jboolean | N/A  | ```true``` and ```false```
 
 See also:
 - [Common integral data types](https://en.wikipedia.org/wiki/Integer_(computer_science)#Common_integral_data_types)
@@ -313,16 +318,34 @@ See also:
   - worst case: amortized linear time
 - ```System#arraycopy```: platform-dependent
 
+See also:
+- [The Android Open Source Project](https://android.googlesource.com/platform/dalvik.git/+/android-4.2.2_r1/vm/native/java_lang_System.cpp)
+
 > The VM makes guarantees about the atomicity of accesses to primitive variables. These guarantees also apply to elements of arrays. In particular, 8-bit, 16-bit, and 32-bit accesses must be atomic and must not cause "word tearing". Accesses to 64-bit array elements must either be atomic or treated as two 32-bit operations. References are always read and written atomically, regardless of the number of bits used to represent them.
 >
 > We can't rely on standard ```libc``` functions like ```memcpy()``` and ```memmove()``` in our implementation of ```System.arraycopy()```, because they may copy byte-by-byte (either for the full run or for "unaligned" parts at the start or end). We need to use functions that guarantee 16-bit or 32-bit atomicity as appropriate.
 
-See also:
-- [The Android Open Source Project](https://android.googlesource.com/platform/dalvik.git/+/android-4.2.2_r1/vm/native/java_lang_System.cpp)
 - [OpenJDK implementation of System.arraycopy](https://stackoverflow.com/a/11210623/9349175)
 - [jdk8/jdk8/hotspot: 87ee5ee27509 src/share/vm/oops/objArrayKlass.cpp](http://hg.openjdk.java.net/jdk8/jdk8/hotspot/file/tip/src/share/vm/oops/objArrayKlass.cpp)
-- [jdk7/jdk7/hotspot: b92c45f2bc75 src/share/vm/utilities/copy.hpp](http://hg.openjdk.java.net/jdk7/jdk7/hotspot/file/b92c45f2bc75/src/share/vm/utilities/copy.hpp)
+
+```cpp
+template <class T> void ObjArrayKlass::do_copy(arrayOop s, T* src, arrayOop d, T* dst, int length, TRAPS) {
+  ...
+```
+
+- [jdk8/jdk8/hotspot: b92c45f2bc75 src/share/vm/utilities/copy.hpp](http://hg.openjdk.java.net/jdk8/jdk8/hotspot/file/b92c45f2bc75/src/share/vm/utilities/copy.hpp)
+
+```cpp
+static void conjoint_oops_atomic(narrowOop* from, narrowOop* to, size_t count) {
+  ...
+```
+
 - [jdk8/jdk8/hotspot: 87ee5ee27509 src/os_cpu/windows_x86/vm/copy_windows_x86.inline.hpp](http://hg.openjdk.java.net/jdk8/jdk8/hotspot/file/87ee5ee27509/src/os_cpu/windows_x86/vm/copy_windows_x86.inline.hpp)
+
+```cpp
+static void pd_conjoint_jints_atomic(jint* from, jint* to, size_t count) {
+  ...
+```
 
 ```java.util.List```
 - ```ArrayList```
