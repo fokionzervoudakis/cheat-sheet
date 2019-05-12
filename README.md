@@ -391,6 +391,7 @@ The vast majority of objects are allocated in a pool dedicated to young objects 
 
 See also:
 - [Go GC: Prioritizing low latency and simplicity](https://blog.golang.org/go15gc)
+- [Idle-Time Garbage-Collection Scheduling](https://cacm.acm.org/magazines/2016/10/207771-idle-time-garbage-collection-scheduling/fulltext)
 
 ## Networking
 
