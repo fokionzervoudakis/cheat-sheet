@@ -8,6 +8,8 @@
   - [Bit Manipulation](#bit-manipulation)
     - [Binary Numbers](#binary-numbers)
       - [Binary Numbers and Base-2](#binary-numbers-and-base-2)
+      - [Binary to Hexadecimal](#binary-to-hexadecimal)
+      - [Binary to Octal](#binary-to-octal)
       - [Negative Numbers and Two's Complement](#negative-numbers-and-twos-complement)
     - [Bitwise AND](#bitwise-and)
     - [Bitwise OR](#bitwise-or)
@@ -96,24 +98,53 @@ $$
 
 #### Binary Numbers and Base-2
 
-decimal | binary | interpretation | powers
-:---: | :---: | :---: | :---:
-0 | 0000 | 0 + 0 + 0 + 0
-1 | 0001 | 0 + 0 + 0 + 1 | $2^0$
-2 | 0010 | 0 + 0 + 2 + 0 | $2^1$
-3 | 0011 | 0 + 0 + 2 + 1 | $2^1 + 2^0$
-4 | 0100 | 0 + 4 + 0 + 0 | $2^2$
-5 | 0101 | 0 + 4 + 0 + 1 | $2^2 + 2^0$
-6 | 0110 | 0 + 4 + 2 + 0 | $2^2 + 2^1$
-7 | 0111 | 0 + 4 + 2 + 1 | $2^2 + 2^1 + 2^0$
-8 | 1000 | 8 + 0 + 0 + 0 | $2^3$
-9 | 1001 | 8 + 0 + 0 + 1 | $2^3 + 2^0$
-10 | 1010 | 8 + 0 + 2 + 0 | $2^3 + 2^1$
+decimal (base-10) | binary (base-2) | powers | octal (base-8) | hexadecimal (base-16)
+:---: | :---: | :---: | :---: | :---:
+0 | 0000 0000 || 0 | 00
+1 | 0000 0001 | $2^0$ | 1 | 01
+2 | 0000 0010 | $2^1$ | 2 | 02
+3 | 0000 0011 | $2^1 + 2^0$ | 3 | 03
+4 | 0000 0100 | $2^2$ | 4 | 04
+5 | 0000 0101 | $2^2 + 2^0$ | 5 | 05
+6 | 0000 0110 | $2^2 + 2^1$ | 6 | 06
+7 | 0000 0111 | $2^2 + 2^1 + 2^0$ | 7 | 07
+8 | 0000 1000 | $2^3$ | 8 | 08
+9 | 0000 1001 | $2^3 + 2^0$ | 10 | 09
+10 | 0000 1010 | $2^3 + 2^1$ | 11 | 0A
+11 | 0000 1011 || 12 | 0B
+12 | 0000 1100 || 13 | 0C
+13 | 0000 1101 || 14 | 0D
+14 | 0000 1110 || 15 | 0E
+15 | 0000 1111 || 16 | 0F
+16 | 0001 0000 || 20 | 10
+17 | 0001 0001 || 21 | 11
+18 | 0001 0010 || 22 | 12
+19 | 0001 0011 || 23 | 13
+20 | 0001 0100 || 24 | 14
 
-[//]: # (TODO)
+#### Binary to Hexadecimal
 
-[//]: # (https://en.wikipedia.org/wiki/Binary_number#Hexadecimal)
-[//]: # (https://en.wikipedia.org/wiki/Binary_number#Octal)
+Convert hexadecimal to binary by replacing each hexadecimal digit with its equivalent four-bit group in binary:
+
+- $58_{10} = 3A_{16} = (0011\ 1010)_{2}$
+- $231_{10} = E7_{16} = (1110\ 0111)_{2}$
+
+Convert binary to hexadecimal by dividing the binary number into four-bit groups (starting at the radix point) and replacing each group with its equivalent hexadecimal digit:
+
+- $82_{10} = (0101\ 0010)_{2} = 52_{16}$
+- $221_{10} = (1101\ 1101)_{2} = DD_{16}$
+
+#### Binary to Octal
+
+Convert octal to binary by replacing each octal digit with its equivalent three-bit group in binary:
+
+- $58_{10} = 72_{8} = (111\ 010)_{2}$
+- $231_{10} = 347_{8} = (011\ 100\ 111)_{2}$
+
+Convert binary to octal by dividing the binary number into three-bit groups (starting at the radix point) and replacing each group with its equivalent octal digit:
+
+- $82_{10} = (001\ 010\ 010)_{2} = 122_{8}$
+- $221_{10} = (011\ 011\ 101)_{2} = 335_{8}$
 
 #### Negative Numbers and Two's Complement
 
@@ -326,21 +357,21 @@ See also:
 > We can't rely on standard ```libc``` functions like ```memcpy()``` and ```memmove()``` in our implementation of ```System.arraycopy()```, because they may copy byte-by-byte (either for the full run or for "unaligned" parts at the start or end). We need to use functions that guarantee 16-bit or 32-bit atomicity as appropriate.
 
 - [OpenJDK implementation of System.arraycopy](https://stackoverflow.com/a/11210623/9349175)
-- [jdk8/jdk8/hotspot: 87ee5ee27509 src/share/vm/oops/objArrayKlass.cpp](http://hg.openjdk.java.net/jdk8/jdk8/hotspot/file/tip/src/share/vm/oops/objArrayKlass.cpp)
+- [jdk8u_hotspot/objArrayKlass.cpp](https://github.com/JetBrains/jdk8u_hotspot/blob/master/src/share/vm/oops/objArrayKlass.cpp)
 
 ```cpp
 template <class T> void ObjArrayKlass::do_copy(arrayOop s, T* src, arrayOop d, T* dst, int length, TRAPS) {
   ...
 ```
 
-- [jdk8/jdk8/hotspot: b92c45f2bc75 src/share/vm/utilities/copy.hpp](http://hg.openjdk.java.net/jdk8/jdk8/hotspot/file/b92c45f2bc75/src/share/vm/utilities/copy.hpp)
+- [jdk8u_hotspot/copy.hpp](https://github.com/JetBrains/jdk8u_hotspot/blob/master/src/share/vm/utilities/copy.hpp)
 
 ```cpp
 static void conjoint_oops_atomic(narrowOop* from, narrowOop* to, size_t count) {
   ...
 ```
 
-- [jdk8/jdk8/hotspot: 87ee5ee27509 src/os_cpu/windows_x86/vm/copy_windows_x86.inline.hpp](http://hg.openjdk.java.net/jdk8/jdk8/hotspot/file/87ee5ee27509/src/os_cpu/windows_x86/vm/copy_windows_x86.inline.hpp)
+- [jdk8u_hotspot/copy_windows_x86.inline.hpp](https://github.com/JetBrains/jdk8u_hotspot/blob/master/src/os_cpu/windows_x86/vm/copy_windows_x86.inline.hpp)
 
 ```cpp
 static void pd_conjoint_jints_atomic(jint* from, jint* to, size_t count) {
