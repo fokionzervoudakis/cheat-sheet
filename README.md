@@ -21,6 +21,7 @@
       - [Arithmetic Right Shifts](#arithmetic-right-shifts)
   - [Java](#java)
     - [Java Primitive Data Types](#java-primitive-data-types)
+    - [Java Arrays](#java-arrays)
     - [Java Class Library (JCL) Performance](#java-class-library-jcl-performance)
     - [Java Variance](#java-variance)
     - [Java Virtual Machine Stacks](#java-virtual-machine-stacks)
@@ -339,6 +340,12 @@ See also:
 
 See also:
 - [Big-O Cheat Sheet](http://bigocheatsheet.com/)
+
+### Java Arrays
+
+Java supports arrays of arrays (with order that can be considered **row-major**) rather than multidimensional arrays.
+
+Arrays must be indexed by ```int```, ```short```, ```byte```, or ```char``` values. The size of an array cannot exceed $2^{31} − 1$ elements.
 
 ### Java Class Library (JCL) Performance
 
