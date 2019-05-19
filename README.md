@@ -167,7 +167,7 @@ decimal | binary | interpretation
 
 The ```AND``` operation takes two bits and returns ```1``` if *both* bits are ```1```. Otherwise, it returns ```0```.
 
-```
+```java
 (1 & 1) == 1
 (1 & 0) == 0
 (0 & 1) == 0
@@ -176,7 +176,7 @@ The ```AND``` operation takes two bits and returns ```1``` if *both* bits are ``
 
 When performing ```AND``` on two integers, the ```AND``` operation is calculated on each pair of bits (the two bits at the same index in each number).
 
-```
+```java
 (5 & 6) == 4
 
 // at bit level:
@@ -189,7 +189,7 @@ When performing ```AND``` on two integers, the ```AND``` operation is calculated
 
 The ```OR``` operation takes two bits and returns ```1``` if *either* of the bits are 1. Otherwise, it returns ```0```.
 
-```
+```java
 (1 | 1) == 1
 (1 | 0) == 1
 (0 | 1) == 1
@@ -198,7 +198,7 @@ The ```OR``` operation takes two bits and returns ```1``` if *either* of the bit
 
 When performing ```OR``` on two integers, the ```OR``` operation is calculated on each pair of bits (the two bits at the same index in each number).
 
-```
+```java
 (5 | 6) == 7
 
 // at bit level:
@@ -211,7 +211,7 @@ When performing ```OR``` on two integers, the ```OR``` operation is calculated o
 
 The ```XOR``` operation (or ```exclusive or```) takes two bits and returns ```1``` if *exactly one* of the bits is ```1```. Otherwise, it returns ```0```.
 
-```
+```java
 (1 ^ 1) == 0
 (1 ^ 0) == 1
 (0 ^ 1) == 1
@@ -220,7 +220,7 @@ The ```XOR``` operation (or ```exclusive or```) takes two bits and returns ```1`
 
 When performing ```XOR``` on two integers, the ```XOR``` operation is calculated on each pair of bits (the two bits at the same index in each number).
 
-```
+```java
 (5 ^ 6) == 3
 
 // at bit level:
@@ -235,7 +235,7 @@ The ```NOT``` bitwise operation takes one set of bits, and for each bit returns 
 
 When performing ```NOT``` on an integer, each bit of the integer is inverted.
 
-```
+```java
 ~ 5 == -6
 
 // at bit level:
@@ -249,14 +249,14 @@ When performing ```NOT``` on an integer, each bit of the integer is inverted.
 
 When shifting left, the most-significant bit is lost, and a ```0``` bit is inserted on the other end.
 
-```
+```java
 0010 << 1 -> 0100
 0010 << 2 -> 1000
 ```
 
 A single left shift multiplies a binary number by ```2```.
 
-```
+```java
 2 << 1 == 4
 
 // at bit level:
@@ -267,14 +267,14 @@ A single left shift multiplies a binary number by ```2```.
 
 When shifting right with a **logical right shift**, the least-significant bit is lost and a ```0``` is inserted on the other end.
 
-```
+```java
 1011 >>> 1 -> 0101
 1011 >>> 3 -> 0001
 ```
 
 For positive numbers, a single logical right shift divides a number by ```2```, throwing out any remainders.
 
-```
+```java
 5 >>> 1 == 2
 
 // at bit level:
@@ -285,7 +285,7 @@ For positive numbers, a single logical right shift divides a number by ```2```, 
 
 When shifting right with an **arithmetic right shift**, the least-significant bit is lost and the most-significant bit is *copied*.
 
-```
+```java
 1011 >> 1 -> 1101
 1011 >> 3 -> 1111
 
@@ -297,7 +297,7 @@ The first two numbers had a ```1``` as the most significant bit, so more ```1```
 
 If a number is encoded using [two's complement](#negative-numbers-and-twos-complement), then an arithmetic right shift preserves the number's sign, while a logical right shift makes the number positive.
 
-```
+```java
 -5 >> 1 == -3
 
 // at bit level:
@@ -529,15 +529,20 @@ See also:
 
 ![](https://upload.wikimedia.org/wikipedia/commons/0/0c/ComputerMemoryHierarchy.svg)
 
+[//]: # (TODO)
+
+[//]: # (https://en.wikipedia.org/wiki/CPU_cache)
+[//]: # (https://en.wikipedia.org/wiki/Memory_hierarchy#Examples)
+
 ## ACID
 
-ACID is an acronym for:
+A **transaction** is a unit of work comprising actions that access or change the contents of a database.
+
+The four basic (**ACID**) properties that define a transaction are:
 - **atomicity**: a transaction is an indivisible unit that is either performed in its entirety or is not performed at all
 - **consistency**: a transaction must transform the database from one consistent state to another consistent state
 - **isolation**: transactions execute independently of one another
-- **durability**: the effects of a successfully completed (committed) transaction
-are permanently recorded in the database and must not be lost because of a
-subsequent failure
+- **durability**: the effects of a successfully completed (committed) transaction are permanently recorded in the database and must not be lost because of a subsequent failure
 
 ## REST
 
