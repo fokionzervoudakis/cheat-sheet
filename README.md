@@ -54,8 +54,8 @@ $O(n!)$ | factorial
 
 - all pairs: $n^2$
 - all triples: $n^3$
-- all subsets of set $n$: $2^n$
-- all $k$ combinations of set $n$ ($n$ choose $k$): ${n \choose k} = n!/(k!(n-k)!)$
+- all subsets of set n: $2^n$
+- all $k$ combinations of set n (n choose k): ${n \choose k} = n!/(k!(n-k)!)$
 - all permutations: $n!$
 
 See also:
