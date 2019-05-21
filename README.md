@@ -31,6 +31,7 @@
     - [Open Systems Interconnection (OSI) Reference Model](#open-systems-interconnection-osi-reference-model)
   - [Numbers](#numbers)
     - [Data Units](#data-units)
+    - [Latencies](#latencies)
     - [Powers of Two](#powers-of-two)
   - [Memory Hierarchy](#memory-hierarchy)
   - [ACID](#acid)
@@ -495,6 +496,32 @@ See also:
 - [Data-rate units](https://en.wikipedia.org/wiki/Data-rate_units)
 - [Some selected powers of two](https://en.wikipedia.org/wiki/Power_of_two#Some_selected_powers_of_two)
 
+### Latencies
+
+description | nanoseconds | microseconds | milliseconds | notes
+:---: | :---: | :---: | :---: | :---:
+L1 cache reference | 0.5 ns
+branch misprediction | 5 ns
+L2 cache reference | 7 ns ||| 14x L1 cache
+mutex lock/unlock | 25 ns
+main memory reference | 100 ns ||| 20x L2 cache, 200x L1 cache
+send 1K bytes over 1 Gbps network | 10,000 ns | 10 us
+read 4K randomly from SSD | 150,000 ns | 150 us || ~1GB/sec SSD
+read 1 MB sequentially from memory | 250,000 ns | 250 us
+round trip within same data center | 500,000 ns | 500 us
+read 1 MB sequentially from SSD | 1,000,000 ns | 1,000 us | 1 ms | ~1GB/sec SSD, 4x memory
+disk seek | 10,000,000 ns | 10,000 us | 10 ms | 20x datacenter roundtrip
+read 1 MB sequentially from disk | 20,000,000 ns | 20,000 us | 20 ms | 20x SSD, 80x memory
+send packet from the US to Europe and back | 150,000,000 ns | 150,000 us | 150 ms
+
+Notes:
+- 1 ns = $10^{-9}$ seconds
+- 1 us = $10^{-6}$ seconds = 1,000 ns
+- 1 ms = $10^{-3}$ seconds = 1,000 us = 1,000,000 ns
+
+See also:
+- [Latency Numbers Every Programmer Should Know](https://gist.github.com/jboner/2841832)
+
 ### Powers of Two
 
 base 2 | bit size | binary value | description
@@ -565,10 +592,6 @@ PATCH | partially updates a resource | no | no | only cacheable if response cont
 DELETE | deletes a resource | yes | no | no
 
 [//]: # (TODO)
-
-[//]: # (https://everythingisdata.wordpress.com/2009/10/17/numbers-everyone-should-know/)
-
-[//]: # (https://en.wikipedia.org/wiki/External_sorting#External_merge_sort)
 
 [//]: # (http://www.cs.umd.edu/~pugh/java/memoryModel/DoubleCheckedLocking.html)
 
