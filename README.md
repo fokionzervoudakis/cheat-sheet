@@ -3,8 +3,9 @@
 - [README](#readme)
   - [Algorithmic Thinking](#algorithmic-thinking)
     - [Big O Notation](#big-o-notation)
-    - [NP-completeness](#np-completeness)
     - [Logarithms](#logarithms)
+    - [NP-completeness](#np-completeness)
+    - [Reductions](#reductions)
   - [Bit Manipulation](#bit-manipulation)
     - [Binary Numbers](#binary-numbers)
       - [Binary Numbers and Base-2](#binary-numbers-and-base-2)
@@ -64,6 +65,20 @@ See also:
 - [Orders of common functions](https://en.wikipedia.org/wiki/Big_O_notation#Orders_of_common_functions)
 - [Table of common time complexities](https://en.wikipedia.org/wiki/Time_complexity#Table_of_common_time_complexities)
 
+### Logarithms
+
+The logarithm for a base *b* and a number *x* is defined to be the inverse function of taking *b* to the power *x*. For any *x* and *b*:
+
+$$
+log_b(x) = y \iff b^y = x
+$$
+
+For example:
+
+$$
+log_2 64 = 6 \iff 2^6 = 64
+$$
+
 ### NP-completeness
 
 - The class **P** consists of problems that are solvable in polynomial time.
@@ -80,19 +95,11 @@ See also:
 
 ![](https://upload.wikimedia.org/wikipedia/commons/a/a0/P_np_np-complete_np-hard.svg)
 
-### Logarithms
+### Reductions
 
-The logarithm for a base *b* and a number *x* is defined to be the inverse function of taking *b* to the power *x*. For any *x* and *b*:
-
-$$
-log_b(x) = y \iff b^y = x
-$$
-
-For example:
-
-$$
-log_2 64 = 6 \iff 2^6 = 64
-$$
+- Given an instance $\alpha$ of problem *A*, use a polynomial-time **reduction algorithm** to transform it to an instance $\beta$ of problem *B*.
+- Run the polynomial-time decision algorithm for *B* on the instance $\beta$.
+- Use the answer for $\alpha$ as the answer for $\beta$.
 
 ## Bit Manipulation
 
