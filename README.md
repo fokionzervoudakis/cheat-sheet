@@ -42,16 +42,16 @@
 
 ### Big O Notation
 
-notation | name | complexity class
-:---: | :---: | :---:
-$O(1)$ | constant time
-$O(log n)$ | logarithmic time
-$O(n)$ | constant time
-$O(n log n)$ | log-linear time
-$O(n^2)$ | quadratic time
-$O(n^c)$ | polynomial time | **P**
-$O(c^n)$ | exponential time (with linear exponent) | **E**
-$O(c^{poly(n)})$ | exponential time | **EXPTIME**
+notation | name | complexity class | algorithm
+:---: | :---: | :---: | :---:
+$O(1)$ | constant || in-place
+$O(log n)$ | logarithmic
+$O(n)$ | linear || one-pass, n-pass
+$O(n log n)$ | log-linear
+$O(n^2)$ | quadratic
+$O(n^c)$ | polynomial | **P**
+$O(c^n)$ | exponential (with linear exponent) | **E**
+$O(c^{poly(n)})$ | exponential | **EXPSPACE**/**EXPTIME**
 $O(n!)$ | factorial
 
 - all pairs: $n^2$
