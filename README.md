@@ -598,19 +598,3 @@ PUT | fully updates (replaces) an existing resource or creates a resource | yes 
 PATCH | partially updates a resource | no | no | only cacheable if response contains explicit freshness information
 DELETE | deletes a resource | yes | no | no
 
-[//]: # (TODO)
-
-[//]: # (http://www.cs.umd.edu/~pugh/java/memoryModel/DoubleCheckedLocking.html)
-
-[//]: # (https://www.infoq.com/articles/cap-twelve-years-later-how-the-rules-have-changed)
-[//]: # (https://en.wikipedia.org/wiki/Fallacies_of_distributed_computing)
-
-[//]: # (http://static.googleusercontent.com/media/research.google.com/zh-CN/us/archive/mapreduce-osdi04.pdf)
-
-[//]: # (https://github.com/donnemartin/system-design-primer#remote-procedure-call-rpc)
-[//]: # (https://github.com/donnemartin/system-design-primer#consistency-patterns)
-[//]: # (https://github.com/donnemartin/system-design-primer#availability-patterns)
-[//]: # (https://github.com/donnemartin/system-design-primer#reverse-proxy-web-server)
-[//]: # (https://gist.github.com/jboner/2841832)
-[//]: # (https://gist.github.com/hellerbarde/2843375)
-
