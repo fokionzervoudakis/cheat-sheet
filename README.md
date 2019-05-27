@@ -508,18 +508,19 @@ See also:
 description | nanoseconds | microseconds | milliseconds | notes
 :---: | :---: | :---: | :---: | :---:
 L1 cache reference | 0.5 ns
-branch misprediction | 5 ns
+branch mispredict | 5 ns
 L2 cache reference | 7 ns ||| 14x L1 cache
 mutex lock/unlock | 25 ns
 main memory reference | 100 ns ||| 20x L2 cache, 200x L1 cache
-send 1K bytes over 1 Gbps network | 10,000 ns | 10 us
+compress 1K w/cheap compression algorithm | 3,000 ns
+send 2K bytes over 1 Gbps network | 20,000 ns | 20 us
 read 4K randomly from SSD | 150,000 ns | 150 us || ~1GB/sec SSD
 read 1 MB sequentially from memory | 250,000 ns | 250 us
 round trip within same data center | 500,000 ns | 500 us
 read 1 MB sequentially from SSD | 1,000,000 ns | 1,000 us | 1 ms | ~1GB/sec SSD, 4x memory
 disk seek | 10,000,000 ns | 10,000 us | 10 ms | 20x datacenter roundtrip
 read 1 MB sequentially from disk | 20,000,000 ns | 20,000 us | 20 ms | 20x SSD, 80x memory
-send packet from the US to Europe and back | 150,000,000 ns | 150,000 us | 150 ms
+send packet CA->Netherlands->CA | 150,000,000 ns | 150,000 us | 150 ms
 
 Notes:
 - 1 ns = $10^{-9}$ seconds
@@ -527,6 +528,7 @@ Notes:
 - 1 ms = $10^{-3}$ seconds = 1,000 us = 1,000,000 ns
 
 See also:
+- [Building Software Systems at Google and Lessons Learned](https://static.googleusercontent.com/media/research.google.com/en//people/jeff/Stanford-DL-Nov-2010.pdf)
 - [Latency Numbers Every Programmer Should Know](https://gist.github.com/jboner/2841832)
 
 ### Powers of Two
@@ -597,4 +599,10 @@ POST | creates a resource or triggers a data-handling process | no | no | only c
 PUT | fully updates (replaces) an existing resource or creates a resource | yes | no | no
 PATCH | partially updates a resource | no | no | only cacheable if response contains explicit freshness information
 DELETE | deletes a resource | yes | no | no
+
+[//]: # (TODO)
+
+[//]: # (http://highscalability.com/blog/2011/1/26/google-pro-tip-use-back-of-the-envelope-calculations-to-choo.html)
+[//]: # (https://www.educative.io/collection/page/5668639101419520/5649050225344512/5668600916475904)
+[//]: # (https://www.educative.io/collection/page/5668639101419520/5649050225344512/5673385510043648)
 
