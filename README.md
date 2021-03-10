@@ -605,4 +605,3 @@ DELETE | deletes a resource | yes | no | no
 [//]: # (http://highscalability.com/blog/2011/1/26/google-pro-tip-use-back-of-the-envelope-calculations-to-choo.html)
 [//]: # (https://www.educative.io/collection/page/5668639101419520/5649050225344512/5668600916475904)
 [//]: # (https://www.educative.io/collection/page/5668639101419520/5649050225344512/5673385510043648)
-
